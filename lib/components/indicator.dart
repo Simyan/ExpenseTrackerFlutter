@@ -13,7 +13,8 @@ class Indicator extends StatelessWidget {
     this.text,
     this.isSquare,
     this.size = 16,
-    this.textColor = const Color(0xff505050),
+   //this.textColor = const Color(0xff505050),
+    this.textColor = const Color(0xff5BF5F3),
   }) : super(key: key);
 
   @override

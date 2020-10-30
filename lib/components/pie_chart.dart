@@ -22,7 +22,7 @@ class PieChartComponent extends StatelessWidget {
           switch (i) {
             case 0:
               return PieChartSectionData(
-                color: const Color(0xff0293ee).withOpacity(opacity),
+                color: const Color(0xffF95738).withOpacity(opacity),
                 value: values[0],
                 title: '${values[0]}',
                 radius: 60,
@@ -32,7 +32,7 @@ class PieChartComponent extends StatelessWidget {
               );
             case 1:
               return PieChartSectionData(
-                color: const Color(0xfff8b250).withOpacity(opacity),
+                color: const Color(0xff4dccbd).withOpacity(opacity),
                 value: values[1],
                 title: '${values[1]}',
                 radius: 60,
@@ -42,7 +42,7 @@ class PieChartComponent extends StatelessWidget {
               );
             case 2:
               return PieChartSectionData(
-                color: const Color(0xff845bef).withOpacity(opacity),
+                color: const Color(0xffffed65).withOpacity(opacity),
                 value: values[2],
                 title: '${values[2]}',
                 radius: 60,
@@ -52,7 +52,7 @@ class PieChartComponent extends StatelessWidget {
               );
             case 3:
               return PieChartSectionData(
-                color: const Color(0xff13d38e).withOpacity(opacity),
+                color: const Color(0xffAA1155).withOpacity(opacity),
                 value: values[3],
                 title: '${values[3]}',
                 radius: 60,
@@ -75,32 +75,32 @@ class PieChartComponent extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Indicator(
-                color: const Color(0xff0293ee),
+                color: const Color(0xffF95738),
                 text: 'Food',
                 isSquare: false,
                 size: 10,
-                textColor: Colors.grey,
+                textColor: const Color(0xffFBF5F3),
               ),
               Indicator(
-                color: const Color(0xfff8b250),
+                color: const Color(0xff4dccbd),
                 text: 'Grocery',
                 isSquare: false,
                 size: 10,
-                textColor: Colors.grey,
+                textColor: const Color(0xffFBF5F3),
               ),
               Indicator(
-                color: const Color(0xff845bef),
+                color: const Color(0xffffed65),
                 text: 'RTA',
                 isSquare: false,
                 size: 10,
-                textColor: Colors.grey,
+                textColor: const Color(0xffFBF5F3),
               ),
               Indicator(
-                color: const Color(0xff13d38e),
+                color: const Color(0xffAA1155),
                 text: 'Others',
                 isSquare: false,
                 size: 10,
-                textColor: Colors.grey,
+                textColor: const Color(0xffFBF5F3),
               ),
             ],
           ),
