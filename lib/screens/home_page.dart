@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/components/custom_card.dart';
+import 'package:expense_tracker/components/pie_chart.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -37,6 +38,20 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
               CustomCard(value: '999 AED', label: 'Food',),
               CustomCard(value: '567 AED', label: 'Grocery',),
+              Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(18.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        PieChartComponent(values: [25,10,40,25])
+                      ],
+                    ),
+                  ),
+                  margin: EdgeInsets.all(15.0),
+                  decoration: BoxDecoration(color: Color(0xFF1D1E33), borderRadius: BorderRadius.circular(10.0))
+              ),
             ],
           ),
         ),
