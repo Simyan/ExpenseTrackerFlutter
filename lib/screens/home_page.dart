@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/components/custom_card.dart';
+import 'package:expense_tracker/screens/category_page.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -19,6 +20,17 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.arrow_forward),
+            tooltip: 'Manage Categories',
+            onPressed: (){
+              Navigator.push(context,
+              MaterialPageRoute(
+                  builder: (context) => CategoryPage( title: widget.title,)));
+            },
+          )
+        ],
       ),
       backgroundColor: const Color(0xff1d1e33).withOpacity(0.1),
       body: SingleChildScrollView(
