@@ -1,14 +1,30 @@
+import 'package:expense_tracker/enums/category_enum.dart';
 import 'package:flutter/material.dart';
+import 'package:expense_tracker/models/store.dart';
+import 'package:expense_tracker/components/selection_button.dart';
 
 class CategoryPage extends StatefulWidget {
   CategoryPage({Key key, this.title}) : super(key: key);
-
   final String title;
   @override
   _CategoryPageState createState() => _CategoryPageState();
+
+
 }
 
 class _CategoryPageState extends State<CategoryPage> {
+  List<Store> storeList = [ new Store('Mirzam', null), new Store('Metro', null), new Store('Krispy Kreme', null)];
+  int index = 0;
+
+  void selectCategory(Category choice){
+    setState(()
+    {
+      storeList[index].category = choice;
+      storeList.length - 1 > index ? index++ : null ;
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,48 +51,20 @@ class _CategoryPageState extends State<CategoryPage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Center(
-                child: Text("Akiba Dori",
+                child: Text(storeList[index].name,
                     style: TextStyle(
                         fontSize: 45.0,
                         fontWeight: FontWeight.w700,
                         color: const Color(0xffFBF5F3))),
               ),
+              Text('${index+1} out of ${storeList.length}',
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.w700,
+                      color: const Color(0xffFBF5F3))),
               const SizedBox(height: 25),
-              Container(
-                width: 250,
-                child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Center(
-                      child: Text("Food",
-
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xff4dccbd))),
-                    )),
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(color: Color(0xFF1D1E33), borderRadius: BorderRadius.circular(10.0),
-                  //boxShadow: [BoxShadow(color: Color(0xFFFFFFFF).withAlpha(50), spreadRadius: 3.2, blurRadius: 4, offset: Offset(0,3))]
-                ),
-              ),
-              Container(
-                width: 250,
-                child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Center(
-                      child: Text("RTA",
-
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.w500,
-                              color: const Color(0xff4dccbd))),
-                    )),
-                margin: EdgeInsets.all(15.0),
-                decoration: BoxDecoration(color: Color(0xFF1D1E33), borderRadius: BorderRadius.circular(10.0),
-                  //boxShadow: [BoxShadow(color: Color(0xFFFFFFFF).withAlpha(50), spreadRadius: 3.2, blurRadius: 4, offset: Offset(0,3))]
-                ),
-              ),
-
+              SelectionButton(selectText: 'Food', selectCategory: Category.food, onSelect: selectCategory),
+              SelectionButton(selectText: 'rta', selectCategory: Category.rta, onSelect: selectCategory),
             ],
           ),
         ));
