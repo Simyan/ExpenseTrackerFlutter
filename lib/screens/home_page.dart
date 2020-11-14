@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/components/custom_card.dart';
 import 'package:expense_tracker/screens/category_page.dart';
+import 'package:expense_tracker/DAL/sms_reader.dart';
+import 'package:expense_tracker/BLL/sms_parser.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -13,6 +15,22 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  @override
+  void initState() {
+    super.initState();
+    readTransactions();
+
+  }
+
+  void readTransactions() async {
+    SMSReader smsReader = new SMSReader();
+    SMSParser smsParser = new SMSParser();
+    var result = await smsReader.readSMS();
+    print(result);
+    smsParser.parseTransactions(result);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
